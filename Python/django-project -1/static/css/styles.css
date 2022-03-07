@@ -1,0 +1,10 @@
+.heading {
+    image-rendering: auto;
+}
+
+.jumbotron{
+    background-image: url("/static/img/mainHeader.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 500px;
+}

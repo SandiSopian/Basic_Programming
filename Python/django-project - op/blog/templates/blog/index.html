@@ -1,0 +1,29 @@
+{% load static %}
+<DOCTYPE html>
+<html>
+<head>
+    <title>{{subjudul}}({{ judul }})</title>
+</head>
+<body>
+ <img style="width:100%" src="{% static banner %}" alt="">
+    <h1> {{ judul }} - {{subjudul}} </h1>
+        <h2> kontributor: {{ kontributor }} </h2>
+       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <ul>
+            <li><a href="/" title="">home</a></li>
+            <li><a href="/blog/" title="">blog</a></li>
+            <li><a href="/about/" title="">about</a></li>
+            <ul>
+                <li><a href="/blog/cerita" title="">cerita</a></li>
+                <li><a href="/blog/news" title="">news</a></li>
+            </ul>
+        </ul>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{title}}</title>
+    {% include "snippets/styles.html" %}
+    
+    {% block app_css %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/styles.css" %}">
+    {% endblock app_css %}
+    
+</head>
+
+<!-- bootstrap navigasi -->
+<body>
+    {% include "snippets/navbar.html" %}
+
+    <nav>
+<!-- bootstrap jumbotron --> 
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container text-white text-center">
+      <br/>
+      <br/>
+        {% block header %}
+
+        {% endblock header %}
+        
+
+      </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="container bg-info text-dark shadow" style="margin-top:-100px" id="myBody">
+        {% block content1 %}
+        <div class="row" style="height:400px">
+            <h1>content1</h1>
+        </div>
+        {% endblock content1 %}
+
+
+        <div class="container bg-warning text-white shadow">
+        {% block content2 %}
+        <div class="row" style="height:400px">
+            <h1>content2</h1>
+        </div>
+        {% endblock content2 %}
+
+
+        <div class="container bg-danger text-white shadow">
+        <div class="row" style="height:300px">
+            <h1>content3</h1>
+        </div>
+        
+        <div class="container bg-dark text-white shadow">
+        <div class="row" style="height:300px">
+            <h1>content4</h1>
+        </div>
+
+        </div>
+    </div>
+
+    </nav>
+
+    {% include "snippets/scripts.html" %}
+
+</body>
+</html>
