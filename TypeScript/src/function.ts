@@ -35,3 +35,18 @@ type Tambah = (a: number, b: number) => number;
 const Add: Tambah = (a: number, b: number): number => {
   return a + b;
 };
+
+// default parameter
+// jika kita tidak memasukan parameter sesuai type maka hasilnya akan mengeluarkan paramater default, tapi jika memasukan parameter yang berbeda maka parameter default akan diganti
+const fullName = (firstName: string, lastName: string = "Uchiha"): string => {
+  return firstName + " " + lastName;
+};
+console.log(fullName("Sasuke"));
+console.log(fullName("Naruto", "Uzimaki"));
+
+// optional parameter
+// optional parameter pada umumnya berlaku jika return dari function tersebut hanya berupa string dan any tapi khusus untuk number dan boolean hasil compilenya ada tapi untuk eksekusi typescript nya error.
+const idNumber = (id1: string, id2?: string): string => {
+  return id1 + id2;
+};
+console.log(idNumber("20112", "0090"));

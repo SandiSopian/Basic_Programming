@@ -20,3 +20,9 @@ animal = 12;
 animal = {};
 animal = [];
 animal = true || false || "string";
+
+// union
+//  Type data union dimana inputan bisa diisi oleh 2 jenis type data
+let phone: number | string;
+phone = 628544474;
+phone = "085475775";
