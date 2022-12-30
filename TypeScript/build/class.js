@@ -54,6 +54,10 @@ class Admin extends User {
         this._email = "";
         this.phone = phone;
     }
+    // contoh 2 "static"
+    static getNameRole() {
+        return "mang";
+    }
     getRole() {
         return { read: this.read, write: this.write };
     }
@@ -71,6 +75,9 @@ class Admin extends User {
         return this._email;
     }
 }
+// static method adalah sebuah property atau method yang bisa diakses langsung didalam class itu sendiri
+// contoh 1 "static"
+Admin.getRoleName = "Admin";
 let admin = new Admin("08544875564", "Cardinal", 35);
 admin.getName();
 console.log(admin.getName());
@@ -80,6 +87,10 @@ admin.setName("Mamang");
 console.log(admin.setName("Mamang"));
 admin.phone;
 console.log(admin.phone);
+let admin1 = Admin.getRoleName;
+console.log(admin1);
+let admin2 = Admin.getNameRole();
+console.log(admin2);
 admin.email = "hheehhe@gmail.com";
 // email ini bersifat public jadi bisa di tampilkan value nya, sementara _email bersifat private jadi tidak bisa di tampilkan value nya
 console.log(admin.email);

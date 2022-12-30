@@ -44,6 +44,9 @@ class Admin extends User {
   write: boolean = true;
   phone: string;
   private _email: string = "";
+  // static method adalah sebuah property atau method yang bisa diakses langsung didalam class itu sendiri
+  // contoh 1 "static"
+  static getRoleName: string = "Admin";
 
   //  menambahkan super construtor pada inherintace class
   constructor(phone: string, name: string, age: number) {
@@ -51,6 +54,12 @@ class Admin extends User {
     super(name, age);
     this.phone = phone;
   }
+
+  // contoh 2 "static"
+  static getNameRole() {
+    return "mang";
+  }
+
   getRole(): { read: boolean; write: boolean } {
     return { read: this.read, write: this.write };
   }
@@ -79,6 +88,11 @@ admin.setName("Mamang");
 console.log(admin.setName("Mamang"));
 admin.phone;
 console.log(admin.phone);
+
+let admin1 = Admin.getRoleName;
+console.log(admin1);
+let admin2 = Admin.getNameRole();
+console.log(admin2);
 
 admin.email = "hheehhe@gmail.com";
 // email ini bersifat public jadi bisa di tampilkan value nya, sementara _email bersifat private jadi tidak bisa di tampilkan value nya
