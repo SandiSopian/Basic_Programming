@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Images Element</title>
+  </head>
+  <body>
+    <main>
+      <h1>Images Element</h1>
+      <p>menentukan jenis gambar lain pada ukuran tertentu</p>
+
+      <img src="img/img1.jpg" alt="komputer" srcset="img/img2.jpg 400w, img/img3.jpg 500w, img/img4.jpg 600w" sizes="(min-width: 1200px) 50vw" loading="lazy" />
+
+      <!-- figure digunakan pada saat ingin menampilkan gambar, code snippet yang memerlukan caption atau source text dibawahnya -->
+      <figure>
+        <img src="img/img1.jpg" alt="komputer" srcset="img/img2.jpg 400w, img/img3.jpg 500w, img/img4.jpg 600w" sizes="(min-width: 1200px) 50vw" loading="lazy" />
+        <figcaption>gambar komputer random</figcaption>
+      </figure>
+
+      <!-- picture digunakan sama halnya penggunaan srcset dan sizes hanya saja lebih mudah dibaca dan digunakan, atau lebih jelasnya untuk responsive design agar gambarnya bisa mudah disesuaikan -->
+      <picture>
+        <source media="(min-widht:960px)" srcset="img/img6.jpg" sizes="50vw" />
+        <source media="(min-widht:600px)" srcset="img/img7.jpg" />
+        <img src="img/img3.jpg" alt="kmputer random" />
+      </picture>
+    </main>
+  </body>
+</html>
