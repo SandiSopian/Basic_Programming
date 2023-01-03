@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tag Audio dan Video</title>
+  </head>
+  <body>
+    <main>
+      <!-- AUDIO -->
+      <!-- Cara pertama -->
+      <audio src="./audio/audio1.mp3" controls loop muted></audio>
+
+      <!-- Cara kedua -->
+      <figure>
+        <figcaption>Play Ringtone</figcaption>
+        <audio controls>
+          <!-- file teartas akan dijalankan terlebih dahulu, jika file diatas gagal maka akan lanjut ke bawahnya -->
+          <source src="./audio/audio2.mp3" type="audio/mpeg" />
+          <source src="./audio/audio1.mp3" type="audio/mpeg" />
+        </audio>
+      </figure>
+
+      <!-- VIDEO -->
+      <!-- cara pertama -->
+      <video src="./video/video1.mp4" width="400" type="video/mp4" controls></video>
+
+      <!-- cara kedua -->
+      <figure>
+        <figcaption>Renai Circulation by Kana Hanazawa</figcaption>
+        <!-- dengan menggunakan autoplay dan muted juga menghilangkan controls maka memungkinkan untuk digunakan sebagai video background -->
+        <video width="400" poster="./video/poster1.jpg" loop autoplay muted>
+          <!-- file teartas akan dijalankan terlebih dahulu, jika file diatas gagal maka akan lanjut ke bawahnya -->
+          <source src="video/video1.webm" type="video/webm" />
+          <source src="video/video1.mp4" type="video/mp4" />
+          Browser tidak menukung tag <code>video</code>
+        </video>
+      </figure>
+
+      <!-- cara ketiga dengan menambahkan track -->
+      <video controls width="400">
+        <source src="./video/video2.mp4" type="video/mp4" />
+        <track src="./captions/caption.vtt" kind="captions" title="Bahasa Korea" srclang="kr" />
+      </video>
+
+      <!-- cara keempat embed dari source nya langsung
+     -->
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/sSJTqPkkd9Q"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </main>
+  </body>
+</html>
