@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Accessibility Tips</title>
+  </head>
+  <body>
+    <!-- Berikut Tips untuk membuat accessibility untuk di terapkan pada website -->
+    <!-- 1. Buat struktur DOM yang 'masuk akal' -->
+    <!-- 2. Gunakan semantic element -->
+    <!-- 3. Interactive control -->
+    <!-- 4. Beri label pada semua kontrol dan gambar -->
+    <!-- 5. Terapkan manajemen fokus yang intuitif  -->
+    <!-- 6. Website bisa diakses penuh dengan hanya menggunakan keyboard -->
+    <!-- 7. Tambahkan ARIA jika dibutuhkan -->
+
+    <!-- 1. Contoh struktur DOM yang 'masuk akal'-->
+    <h1>Hello Players!</h1>
+    <label for="name">
+      Name :
+      <input type="text" name="name" />
+    </label>
+
+    <label for="role">Role :</label>
+    <select name="role" id="role">
+      <option value="br">Barbarian</option>
+      <option value="dr">Destroyer</option>
+    </select>
+
+    <button>Send!</button>
+
+    <!-- 2. Contoh semantic element -->
+    <header></header>
+    <main>
+      <section>
+        <article>
+          <figure>
+            <img src="" alt="" />
+            <figcaption></figcaption>
+          </figure>
+        </article>
+      </section>
+    </main>
+    <footer></footer>
+
+    <br />
+
+    <!-- 3. Interaktif control -->
+    <!-- gunakan button jika ingin mengirim form -->
+    <!-- jangan gunakan div | span, karena div | span tidak memiliki makna -->
+    <span onclick=""></span>
+    <!-- ganti dengan -->
+    <a href=""></a>
+
+    <div onclick=""></div>
+    <!-- ganti dengan -->
+    <button onclick=""></button>
+
+    <br />
+
+    <!-- 4. Labelling -->
+    <!-- 4.a. selalu gunakan label pada saat menggunkan input -->
+    <!-- cara pertama : tag label dipisah dengan input-->
+    <label for="name">Name :</label>
+    <input type="text" name="name" id="name" />
+    <br />
+    <!-- cara kedua : tag label disatukan dengan input -->
+    <label>
+      Name :
+      <input type="text" name="name" />
+    </label>
+
+    <!-- 4.b. selalu gunakan label pada gambar -->
+    <!-- gambar utama -->
+    <img src="gambar.png" alt="[penjelasan...]" />
+
+    <!-- dekorasi -->
+    <!-- khusus untuk dekorasi atau penghias saja, maka kosongkan bagian alt nya agar screen reader melewati untuk membaca nya -->
+    <img src="pattern.png" alt="" />
+
+    <!-- 5. Terapkan manajemen fokus yang intuitif  -->
+    <!-- 5.a. contohnya jika menggunakan <button> untuk mengirim suatu data, maka dengan menekan mouse atau keyboard tombol tersebut akan tetap bisa dijalanakan, berbeda dengan <div> yang harus diberi perlakuan khusus secara manual dengan javascript-->
+    <!-- dengan <button> -->
+    <button onclick="alert('hallo guys')">Kirim Pesan 1!</button>
+    <!-- dengan <div> -->
+    <div tabindex="0" onclick="showAlert('halo')" role="button" id="buttondiv">Kirim Pesan 2!</div>
+
+    <!-- 6. Accessibilty testing -->
+    <!-- untuk mengetes website accessibilty nya bagus atau tidak bisa menggunakan tool "Lighthouse" pada Chrome atau mengunjungi WCAG (Web Content Accessibillity Guidelines) -->
+
+    <script>
+      const showAlert = (text) => alert(text);
+      const buttondiv = document.getElementById("buttondiv");
+      buttondiv.addEventListener("keyup", function (e) {
+        if (e.keyCode == 32 || e.keyCode == 13) {
+          showAlert("halo");
+        }
+      });
+    </script>
+  </body>
+</html>
