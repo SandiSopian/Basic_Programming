@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      form {
+        width: 600px;
+        padding: 20px;
+      }
+
+      form div {
+        margin: 10px;
+      }
+
+      label {
+        display: block;
+      }
+
+      /* pseudo class CSS untuk form validasi */
+      input:invalid,
+      input:required:invalid {
+        border: none;
+        outline: 2px solid red;
+        border-radius: 2px;
+      }
+
+      /* pseudo class CSS untuk form validasi */
+      input:valid,
+      input:required {
+        border: 1px solid black;
+        outline: inherit;
+        border-radius: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="" method="post" autocomplete="off">
+      <div>
+        <label for="nama">Masukan nama:</label>
+        <input type="text" name="nama" id="nama" placeholder="Masukan nama lengkap" required autofocus minlength="5" maxlength="10" oninvalid="this.setCostumValidity('masukan nama lengkap!')" oninput="this.setCostumValidity('')" />
+      </div>
+      <div>
+        <label for="email">Masukan email:</label>
+        <input type="email" name="email" id="email" placeholder="Masukan nama lengkap" />
+      </div>
+      <div>
+        <label for="tel">Masukan No Hp:</label>
+        <input type="tel" name="tel" id="tel" placeholder="Masukan No Hp" />
+      </div>
+      <div>
+        <label for="url">Masukan alamat website</label>
+        <input type="url" name="url" id="url" placeholder="Masukan alamat website" />
+      </div>
+      <div>
+        <label for="number">Masukan kode angka</label>
+        <input type="number" name="number" id="number" placeholder="Masukan kode angka" min="10" max="100" step="7" />
+      </div>
+      <div>
+        <label for="slider">Masukan angka</label>
+        <span class="awal"></span>
+        <input type="range" name="slider" id="slider" placeholder="Masukan angka" min="0" max="100" />
+        <span class="akhir"></span>
+        <div class="nilai"><span>Nilai anda</span></div>
+      </div>
+      <div>
+        <label for="tanggal">Masukan tanggal</label>
+        <input type="date" name="tanggal" id="tanggal" placeholder="Masukan tanggal" />
+      </div>
+      <div>
+        <label for="time">Masukan jam</label>
+        <input type="time" name="time" id="time" placeholder="Masukan jam" />
+      </div>
+      <div>
+        <label for="warna">Masukan warna</label>
+        <input type="color" name="warna" id="warna" placeholder="Masukan warna" />
+        <span class="hexa">Hexa</span>
+      </div>
+      <div>
+        <label for="kodepos">Masukan kode post</label>
+        <input type="text" name="kodepos" id="kodepos" placeholder="Masukan kode post" pattern="^([1-9])[0-9]{4}$" />
+      </div>
+      <div>
+        <label for="nohp">Masukan no hp</label>
+        <input type="tel" name="nohp" id="nohp" placeholder="Masukan kode post" pattern="^(\+62|62|0)8[1-9][0-9]{6,9}$" />
+      </div>
+      <div>
+        <button type="submit">Kirim</button>
+      </div>
+    </form>
+
+    <script>
+      const slider = document.querySelector("#slider");
+      const awal = document.querySelector(".awal");
+      const akhir = document.querySelector(".akhir");
+      const nilai = document.querySelector(".nilai");
+
+      awal.innerHTML = slider.min;
+      akhir.innerHTML = slider.max;
+      slider.addEventListener("input", function () {
+        nilai.innerHTML = slider.value;
+      });
+
+      const warna = document.querySelector("#warna");
+      const hexa = document.querySelector(".hexa");
+
+      hexa.innerHTML = warna.value;
+      warna.addEventListener("input", function () {
+        hexa.innerHTML = warna.value;
+        hexa.style.color = warna.value;
+      });
+    </script>
+  </body>
+</html>
